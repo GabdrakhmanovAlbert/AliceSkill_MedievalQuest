@@ -1,12 +1,14 @@
 # import json
+from data.db_session import global_init
 from functools import reduce
-import random 
+import random
 
-user_name = None
-ss_fingers = random.randint(2, 36)
-if ss_fingers == 10:
-    ss_fingers += random.randint(1, 26)
-# story_index = 0
+if __name__ == '__main__':
+    global_init("quest.db")
+    user_name = None
+    ss_fingers = random.randint(2, 36)
+    if ss_fingers == 10:
+        ss_fingers += random.randint(1, 26)
 
 
 def task1(event):
@@ -109,5 +111,3 @@ def main(event, context):
     resp_dict['session_state']['story_index'] += extra
 
     return resp_dict
-
-
